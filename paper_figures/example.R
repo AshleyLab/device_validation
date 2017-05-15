@@ -1,0 +1,5 @@
+mat <- matrix(1:100, byrow=T, nrow=10)
+column_annotation <- sample(c("red", "blue", "green"), 10, replace=T)
+column_annotation <- as.matrix(column_annotation)    
+colnames(column_annotation) <- c("True")
+heatmap.2(mat, ColSideColors=column_annotation)
