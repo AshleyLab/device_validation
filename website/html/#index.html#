@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<title>Device Validation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="index.css">
+<body>
+
+<!-- Side Navigation -->
+<nav class="w3-sidenav w3-white w3-card-2 w3-animate-left" style="display:none" id="mySidenav">
+  <h1 class="w3-xxxlarge w3-text-teal">Side Navigation</h1>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-xxxlarge w3-text-theme">Close <i class="fa fa-remove"></i></a>
+  <a href="javascript:void(0)">Link 1</a>
+  <a href="javascript:void(0)">Link 2</a>
+  <a href="javascript:void(0)">Link 3</a>
+  <a href="javascript:void(0)">Link 4</a>
+  <a href="javascript:void(0)">Link 5</a>
+</nav>
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-opennav"></i>
+  <div class="w3-center">
+  <h4>Stanford University</h4>
+  <h1 class="w3-xxxlarge w3-animate-bottom">Device Validation Datahub</h1>
+    <div class="w3-padding-32">
+      <a class="w3-btn w3-xlarge w3-dark-gray" href="http://ashleylab.stanford.edu/">Ashley Lab</a>
+    </div>
+  </div>
+</header>
+
+
+<div class="w3-row-padding w3-center w3-margin-top">
+<div class="w3-third">
+  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
+  <h4>Datasets</h4><br>
+  <i class="fa fa-database w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p><a href="ashleylab_datasets.php">Ashley Lab Datasets</a></p>
+  <p><a href="datasets.php">All Datasets</a></p>
+  <p>Upload Your Data</p>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
+  <h4>Protocols</h4><br>
+  <i class="fa fa-bar-chart w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p>Ashley Lab Protocols</p>
+  <p>All Protocols</p> 
+  <p><a href="http://52.9.243.254:8000">Statistical Analysis Jupyter Notebooks</a></p>
+  <p>Contribute Your Protocol</p>
+  </div>
+</div>
+
+<div class="w3-third">
+  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
+  <h4>What's New</h4><br>
+  <i class="fa fa-comments-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+  <p><a href="news.html">News/Events</a></p>
+  <p><a href="forum/index.php">Forum</a></p>
+  <div class="w3-dropdown-hover">
+  <button class="w3-btn w3-theme w3-large">Manuscripts <i class="fa fa-caret-down"></i></button>
+  <div class="w3-dropdown-content w3-light-grey w3-grey w3-left-align">
+    <a href="https://docs.google.com/document/d/1b7EIdqGe-ErWGGMdwKz6vIXqtuPz5DZQflnS129MdyI/edit?usp=sharing">Accuracy in measurements of heart rate and...</a>
+    <a href="javascript:void(0)">Link 2</a>
+    <a href="javascript:void(0)">Link 3</a>
+  </div>
+  </div>
+  </div>
+</div>
+</div>
+<footer class="w3-container w3-theme-dark w3-padding-16">
+  <div class="w3-center">
+  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </div>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Go To Top</span>
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+
+<!-- Script for Sidenav, Tabs, Accordions, Progress bars and slideshows -->
+<script>
+// Side navigation
+function w3_open() {
+    var x = document.getElementById("mySidenav");
+    x.style.width = "100%";
+    x.style.textAlign = "center";
+    x.style.fontSize = "50px";
+    x.style.paddingTop = "10%";
+    x.style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+
+// Tabs
+function openCity(evt, cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  var activebtn = document.getElementsByClassName("testbtn");
+  for (i = 0; i < x.length; i++) {
+      activebtn[i].className = activebtn[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-dark-grey";
+}
+
+var mybtn = document.getElementsByClassName("testbtn")[0];
+mybtn.click();
+
+// Accordions
+function myAccFunc(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-dark-grey";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className =
+        x.previousElementSibling.className.replace(" w3-dark-grey", "");
+    }
+}
+
+// Slideshows
+var slideIndex = 1;
+
+function plusDivs(n) {
+slideIndex = slideIndex + n;
+showDivs(slideIndex);
+}
+
+function showDivs(n) {
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+
+showDivs(1);
+
+// Progress Bars
+function move() {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width == 100) {
+      clearInterval(id);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+      document.getElementById("demoprgr").innerHTML = width * 1  + '%';
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
