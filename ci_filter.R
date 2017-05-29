@@ -37,19 +37,19 @@ qt_val_walk=qt(0.95,df=length(apple_hr_walk_error_median)-1)*sd(apple_hr_walk_er
 basis_hr_walk_error_median=median(na.omit(abs(unlist(data[c("hr_walk1_Basis","hr_walk2_Basis")]))))
 
 ########ALL TASKS#####
-fitbit=abs(as.numeric(unlist(na.omit(read.table("fig1/Fitbit_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
+fitbit=abs(as.numeric(unlist(na.omit(read.table("paper_figures/fig1/Fitbit_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
 qt_val=qt(0.95,df=length(fitbit)-1)*sd(fitbit)/sqrt(length(fitbit))
 
-apple=abs(as.numeric(unlist(na.omit(read.table("fig1/Apple_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
+apple=abs(as.numeric(unlist(na.omit(read.table("paper_figures/fig1/Apple_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
 qt_val=qt(0.95,df=length(apple)-1)*sd(apple)/sqrt(length(apple))
 
-basis=abs(as.numeric(unlist(na.omit(read.table("fig1/Basis_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
+basis=abs(as.numeric(unlist(na.omit(read.table("paper_figures/fig1/Basis_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
 qt_val=qt(0.95,df=length(basis)-1)*sd(basis)/sqrt(length(basis))
 
-microsoft=abs(as.numeric(unlist(na.omit(read.table("fig1/Microsoft_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
+microsoft=abs(as.numeric(unlist(na.omit(read.table("paper_figures/fig1/Microsoft_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
 qt_val=qt(0.95,df=length(microsoft)-1)*sd(microsoft)/sqrt(length(microsoft))
 
-pulseon=abs(as.numeric(unlist(na.omit(read.table("fig1/PulseOn_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
+pulseon=abs(as.numeric(unlist(na.omit(read.table("paper_figures/fig1/PulseOn_en.ALL.TASKS.csv",header=FALSE,sep='\t')))))
 qt_val=qt(0.95,df=length(pulseon)-1)*sd(pulseon)/sqrt(length(pulseon))
 
 

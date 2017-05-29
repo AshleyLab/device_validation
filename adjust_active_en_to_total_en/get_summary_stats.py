@@ -29,13 +29,16 @@ def main():
         cur_correction=tokens[correction_index]
         kcal_value=float(tokens[kcal_index])
         percent_value=float(tokens[percent_index])
+        #print(str(cur_device))
+        #print(str(percent_value))
+        #print(str(cur_activity))
         devices.add(cur_device)
         activities.add(cur_activity)
         if cur_device not in percent_error_dict:
             percent_error_dict[cur_device]=dict()
         if cur_activity not in percent_error_dict[cur_device]:
             percent_error_dict[cur_device][cur_activity]=dict()
-        if cur_correction not in percent_error_dict[cur_device]: 
+        if cur_correction not in percent_error_dict[cur_device][cur_activity]: 
             percent_error_dict[cur_device][cur_activity][cur_correction]=[percent_value]
         else:
             percent_error_dict[cur_device][cur_activity][cur_correction].append(percent_value)
@@ -43,15 +46,16 @@ def main():
             kcal_error_dict[cur_device]=dict()
         if cur_activity not in kcal_error_dict[cur_device]:
             kcal_error_dict[cur_device][cur_activity]=dict()
-        if cur_correction not in kcal_error_dict[cur_device]: 
+        if cur_correction not in kcal_error_dict[cur_device][cur_activity]: 
             kcal_error_dict[cur_device][cur_activity][cur_correction]=[kcal_value]
         else:
             kcal_error_dict[cur_device][cur_activity][cur_correction].append(kcal_value)
-        percent_error_dict['all'].append(percent_value)
-        kcal_error_dict['all'].append(kcal_value)
+        #percent_error_dict['all'].append(percent_value)
+        #kcal_error_dict['all'].append(kcal_value)
     outf=open(args.outf+'.percent','w')
     activities=list(activities)
     devices=list(devices)
+    pdb.set_trace() 
     import numpy as np 
     outf.write('Uncorrected:\n')
     outf.write('\t'+'\t'.join(activities)+'\n')
