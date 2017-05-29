@@ -1,23 +1,24 @@
 rm(list=ls())
 source("~/device_validation/helpers.R")
-data=read.table("All.adjusted.EE.error.csv",header=TRUE,sep='\t')
+#data=read.table("All.adjusted.EE.error.csv",header=TRUE,sep='\t')
+data=read.table("en.heatmap.bySubject",header=TRUE,sep='\t')
 library(ggplot2)
 #subset data by activities & correction factor 
 unc_sit_data=data[data$Activity=="sit" & data$Correction=="uncorrected",]
 rs_sit_data=data[data$Activity=="sit" & data$Correction=="roza_shizgal",]
 hb_sit_data=data[data$Activity=="sit" & data$Correction=="harris_benedict",]
 
-unc_walk_data=data[data$Activity=="walk" & data$Correction=="uncorrected",]
-rs_walk_data=data[data$Activity=="walk" & data$Correction=="roza_shizgal",]
-hb_walk_data=data[data$Activity=="walk" & data$Correction=="harris_benedict",]
+unc_walk_data=data[(data$Activity=="walk1" | data$Activity=="walk2") & data$Correction=="uncorrected",]
+rs_walk_data=data[(data$Activity=="walk1" | data$Activity=="walk2") & data$Correction=="roza_shizgal",]
+hb_walk_data=data[(data$Activity=="walk1" | data$Activity=="walk2") & data$Correction=="harris_benedict",]
 
-unc_run_data=data[data$Activity=="run" & data$Correction=="uncorrected",]
-rs_run_data=data[data$Activity=="run" & data$Correction=="roza_shizgal",]
-hb_run_data=data[data$Activity=="run" & data$Correction=="harris_benedict",]
+unc_run_data=data[(data$Activity=="run1" | data$Activity=="run2") & data$Correction=="uncorrected",]
+rs_run_data=data[(data$Activity=="run1" | data$Activity=="run2") & data$Correction=="roza_shizgal",]
+hb_run_data=data[(data$Activity=="run1" | data$Activity=="run2") & data$Correction=="harris_benedict",]
 
-unc_bike_data=data[data$Activity=="bike" & data$Correction=="uncorrected",]
-rs_bike_data=data[data$Activity=="bike" & data$Correction=="roza_shizgal",]
-hb_bike_data=data[data$Activity=="bike" & data$Correction=="harris_benedict",]
+unc_bike_data=data[(data$Activity=="bike1"|data$Activity=="bike2") & data$Correction=="uncorrected",]
+rs_bike_data=data[(data$Activity=="bike1"|data$Activity=="bike2") & data$Correction=="roza_shizgal",]
+hb_bike_data=data[(data$Activity=="bike1"|data$Activity=="bike2") & data$Correction=="harris_benedict",]
 
 unc_max_data=data[data$Activity=="max" & data$Correction=="uncorrected",]
 rs_max_data=data[data$Activity=="max" & data$Correction=="roza_shizgal",]

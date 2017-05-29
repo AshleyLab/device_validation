@@ -265,29 +265,16 @@ for subject in subjects:
 
 
 outf_en=open('en.heatmap.bySubject','w')
-outf_en.write('Subject')
-for state in states:
-    for device in devices:
-        for metric in ['percent','kcal']: 
-            for correction in ['uncorrected','RozaShizgal','HarrisBenedict']:
-                outf_en.write('\t'+state+"_"+device+'_'+metric+'_'+correction)
-outf_en.write('\n')
+outf_en.write('Subject\tDevice\tActivity\tCorrection\tErrorPercent\tErrorKcal\n')
 
 for subject in subjects:
-    outf_en.write(subject) 
-    for state in states:
-        for device in devices:
-            if device in device_activity_mean[subject]:
-                try:
-                    if state in device_activity_mean[subject][device]['Energy']:
-                        outf_en.write('\t'+'\t'.join([str(i) for i in device_activity_mean[subject][device]['Energy'][state]]))
-                    else:
-                        outf_en.write('\t'+'\t'.join([placeholder]*3))
-                except:
-                    outf_en.write('\t'+'\t'.join([placeholder]*3)) 
-            else:
-                outf_en.write('\t'+'\t'.join([placeholder]*3)) 
-    outf_en.write('\n')
+    for device in device_activity_mean[subject]:
+        if ('Energy' in device_activity_mean[subject][device]):
+            for state in device_activity_mean[subject][device]['Energy']:
+                values=[str(i) for i in device_activity_mean[subject][device]['Energy'][state]]
+                print(str(values))
+                outf_en.write(subject+'\t'+device+'\t'+state+'\t'+'uncorrected'+'\t'+str(values[0])+'\t'+str(values[3])+'\n')
+                outf_en.write(subject+'\t'+device+'\t'+state+'\t'+'roza_shizgal'+'\t'+str(values[1])+'\t'+str(values[4])+'\n')
+                outf_en.write(subject+'\t'+device+'\t'+state+'\t'+'harris_benedict'+'\t'+str(values[2])+'\t'+str(values[5])+'\n')
+            
     
-
-
