@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>Ashley Lab Device Validation Protocol (Exercise Lab)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="index.css">
+<body>
+<div class="w3-row-padding  w3-margin-top">
+<img alt="Ashley Lab Validation Protocol (Exercise Lab)" src="AshleyLabProtocol.png" style="width:800px" />
+<div  class="w3-row-padding  w3-margin-top" style="width:800px;"><b>Figure 1. Study protocol. (A)</b> Schematic view of the protocol. Participants transition through two intensities of three modalities of exercise as shown. Walking is on a treadmill. Cycling is on a stationary bike. Activities are interspersed with brief (1 min) periods of rest "R", and transitions between activities are indicated by "T"; <b>(B)</b> Data from one participant wearing four devices. Data for the error analysis is derived from the last minute of each stage. Overall, error is within an acceptable range with the exception of the walking phase for one device (green line).</div>
+</div>
+<div  class="w3-row-padding w3-margin-top" style="width:1200px">
+The study was conducted in accordance with the principles outlined in the Declaration of Helsinki and approved by the Institutional Review Board of Stanford University (protocol ID 34651, Euan Ashley). All participants provided informed consent prior to the initiation of the study.
+
+<h2>Protocol</h2>
+Participants performed the standardized exercise protocol shown in Figure 1 in a controlled laboratory setting. Participants were wearing up to four devices simultaneously and underwent continuous 12-lead electrocardiographic (ECG) monitoring and continuous clinical grade indirect calorimetry (expired gas analysis) using FDA approved equipment (Quark CPET, COSMED, Rome, Italy). After being fitted with all equipment, the protocol started with the participant seated for 5 min. This led to a transition to a treadmill and walking (3.0 mph at 0.5% incline) for 10:00 min followed by faster walking (4.0 mph at 0.5% incline) until 15:00 min, slow running (average speed 5.7 mph at 0.5% incline, range 4.5 - 6.5 mph) until 20:00 min, and faster running (average speed 6.9 mph at 0.5% incline, range 4.8-9.0 mph) until 25:00. Thereafter, there was 1 min of sitting recovery, and 2 min of rest and transition to a cycle ergometer where 5 min of low intensity cycling (average work rate 88 W, range 50-100 W) until 33:00 min was followed by more intense cycling (average work rate 160 W, range 80-225 W) until 38:00 min, and 1 min of sitting recovery concluded the protocol. Both the running and cycling stages were individualized to the participants' individual fitness levels in order to maximize range of HR and EE. The last minute of each stage was used for the analysis.
+
+<h2> Device Data Collection </h2>
+Data was collected according to manufacturers' instructions or by making use of an Application Programming Interface (API).
+<h3>Apple Watch</h3>
+All data from the Apple Watch was sent to the Apple Health app on the iPhone, and exported from Apple Health in XML format for analysis. The Apple Health app provided heart rate, energy expenditure, and step count data sampled at one minute granularity. For intense activity (running and max test), the sampling frequency was higher than once per minute. In cases where more than one measurement was collected each minute, the average measurement for the minute was utilized, since the minute average is the granularity for several of the other devices.
+<h3>Basis Peak (Version 1)</h3>
+Minute-granularity data was downloaded directly from the Basis app.
+<h3>Fitbit Surge</h3>
+The Fitbit Developer API was used to create an application for downloading data at minute-level granularity from the Fitbit Surge device [1] (project key: M2ipOlQ6KOH3nAO4UMjKYmU0AEaSipy0i).
+
+<h3>Microsoft Band (Version 1)</h3>
+The mitmproxy software tool [2] was utilized to extract data from the Microsoft Band, following the technique outlined by J. Huang [3]. Data packets transmitted by the Microsoft phone app were re-routed to an external server for aggregation and analysis. Sampling granularity varied by activity and subject. In cases where multiple data samples were collected each minute, the last data sample for the minute was utilized in the analysis.
+<h3>Mio Alpha 2</h3>
+The raw data from the Mio device is not accessible. However, static images of the heart rate over the duration of the activity are stored in the Mio phone app. The WebPlotDigitizer tool was utilized to trace over the heart rate images and to discretize the data to the minute level.
+<h3>PulseOn</h3>
+The PulseOn Android application transmits raw data to a SQLite3 database on the Android device. The SQLite3 database stores data sampled at three second granularity. Three-second samples for the last minute of each activity state were averaged to generate heart rate and energy expenditure values for the activity state.
+<h3>Samsung Gear S2</h3>
+Raw data from the Samsung Gear is not accessible to users. However, heart rate and step count over time are displayed as static images within the Samsung Gear App. The WebPlotDigitizer  [4] tool was utilized to trace over the static images and to discretize them to the minute level.
+<h2> References</h2>
+<ol>
+<li>Fitbit Developer API. Available online: https://dev.fitbit.com/ (accessed on 3 April 2016).</li>
+<li>Mitmproxy - Home. Available online: http://mitmproxy.org/ (accessed on 3 April 2016).</li>
+<li>Jeff Huang Extracting My Data from the Microsoft Band. Available online: http://jeffhuang.com/extracting_my_data_from_the_microsoft_band.html (accessed on 3 April 2016).</li>
+<li>Rohatgi, A. WebPlotDigitizer. Available online: http://arohatgi.info/WebPlotDigitizer (accessed on 1. November 2015).</li>
+</ol>
+</div>
+</body>
+</html>

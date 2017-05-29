@@ -1,73 +1,67 @@
 <!DOCTYPE html>
 <html>
-<title>Device Validation</title>
+<title>Upload Data</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="index.css">
 <body>
 
-<!-- Side Navigation -->
-<nav class="w3-sidenav w3-white w3-card-2 w3-animate-left" style="display:none" id="mySidenav">
-  <h1 class="w3-xxxlarge w3-text-teal">Side Navigation</h1>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-xxxlarge w3-text-theme">Close <i class="fa fa-remove"></i></a>
-  <a href="javascript:void(0)">Link 1</a>
-  <a href="javascript:void(0)">Link 2</a>
-  <a href="javascript:void(0)">Link 3</a>
-  <a href="javascript:void(0)">Link 4</a>
-  <a href="javascript:void(0)">Link 5</a>
-</nav>
 
 <!-- Header -->
 <header class="w3-container w3-theme w3-padding" id="myHeader">
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-opennav"></i>
   <div class="w3-center">
-  <h4>Stanford University</h4>
-  <h1 class="w3-xxxlarge w3-animate-bottom">Device Validation Datahub</h1>
-    <div class="w3-padding-32">
-      <a class="w3-btn w3-xlarge w3-dark-gray" href="http://ashleylab.stanford.edu/">Ashley Lab</a>
-    </div>
+  <h4>Upload Your Dataset</h4>
   </div>
 </header>
 
 
-<div class="w3-row-padding w3-center w3-margin-top">
-<div class="w3-third">
-  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
-  <h4>Datasets</h4><br>
-  <i class="fa fa-database w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p><a href="ashleylab_datasets.php">Ashley Lab Datasets</a></p>
-  <p><a href="datasets.php">All Datasets</a></p>
-  <p><a href="upload_data.html">Upload Your Data</a></p>
-  </div>
-</div>
 
-<div class="w3-third">
-  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
-  <h4>Protocols</h4><br>
-  <i class="fa fa-bar-chart w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p><a href="ashleylab_protocols.php">Ashley Lab Protocols</a></p>
-  <p><a href="protocols.php">All Protocols</a></p> 
-  <p><a href="http://52.9.243.254:8000">Statistical Analysis Jupyter Notebooks</a></p>
-  <p><a href="upload_protocol.html">Contribute Your Protocol</a></p>
+<div class="w3-row-padding">
+<form class="w3-container w3-card-4">
+  <div class="w3-group">
+    <input id="DatasetName" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Dataset Name</label>
   </div>
-</div>
+  <div class="w3-group">
+    <input id="DatasetDescription" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Dataset Description (1000 chrs.)</label>
+  </div>
+  <div class="w3-group">
+    <input id="Author" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Submitter</label>
+  </div>
+  <div class="w3-half">
+    <input id="submiter_type_university" class="w3-radio" type="radio" name="submitter_type" value="university" checked>
+    <label class="w3-validate">University</label>
+    <br>
+    <input id="submitter_type_company" class="w3-radio" type="radio" name="submitter_type" value="company">
+    <label class="w3-validate">Company</label>
+    <br>
+    <input id="submitter_type_private_individual" class="w3-radio" type="radio" name="submitter_type" value="private_individual">
+    <label class="w3-validate">Private Individual</label>
+    <br>
+    <input id="submitter_type_other" class="w3-radio" type="radio" name="submitter_type" value="other">
+    <label class="w3-validate">Other</label>
+  </div>
 
-<div class="w3-third">
-  <div class="w3-card-2 w3-padding-top" style="min-height:460px">
-  <h4>What's New</h4><br>
-  <i class="fa fa-comments-o w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-  <p><a href="news.html">News/Events</a></p>
-  <p><a href="forum/index.php">Forum</a></p>
-  <div class="w3-dropdown-hover">
-  <button class="w3-btn w3-theme w3-large">Manuscripts <i class="fa fa-caret-down"></i></button>
-  <div class="w3-dropdown-content w3-light-grey w3-grey w3-left-align">
-    <a href="http://www.mdpi.com/2075-4426/7/2/3">Accuracy in measurements of heart rate and...</a>
+  <div class="w3-row">
+  <div class="w3-half">
+    <input id="milk" class="w3-check" type="checkbox" checked="checked">
+    <label class="w3-validate">Milk</label>
+    <br>
+    <input id="sugar" class="w3-check" type="checkbox">
+    <label class="w3-validate">Sugar</label>
+    <br>
+    <input id="lemon" class="w3-check" type="checkbox" disabled>
+    <label class="w3-validate">Lemon (Disabled)</label>
+    <br><br>
   </div>
+
   </div>
-  </div>
-</div>
+  
+</form>
 </div>
 <footer class="w3-container w3-theme-dark w3-padding-16">
   <div class="w3-center">
@@ -79,7 +73,6 @@
     <i class="fa fa-chevron-circle-up"></i></span></a>
   </div>
 </footer>
-
 <!-- Script for Sidenav, Tabs, Accordions, Progress bars and slideshows -->
 <script>
 // Side navigation
