@@ -50,7 +50,7 @@ if (!$db_selected) {
 echo "<br />Inserting fields into database."; 
 
 
-$database_protocol_prefix="http://52.9.243.254/protocols/";
+$database_protocol_prefix="http://precision.stanford.edu/protocols/";
 $database_entry_protocol_link=$database_protocol_prefix . basename($_FILES["protocolFileToUpload"]["name"]);
 
 $sql = "INSERT INTO protocols (name,description,download,status,author,updated,submitter_type) VALUES ('{$_POST['ProtocolName']}', '{$_POST['ProtocolDescription']}','$database_entry_protocol_link','Pending Evaluation','{$_POST['Submitter']}',NOW(),'{$_POST['submitter_type']}');";

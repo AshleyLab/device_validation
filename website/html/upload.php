@@ -76,9 +76,9 @@ if (!$db_selected) {
 echo "<br />Inserting fields into database."; 
 
 
-$database_dataset_prefix="http://52.9.243.254/datasets/";
+$database_dataset_prefix="http://precision.stanford.edu/datasets/";
 $database_entry_dataset_link=$database_dataset_prefix . basename($_FILES["fileToUpload"]["name"]);
-$database_protocol_prefix="http://52.9.243.254/protocols/";
+$database_protocol_prefix="http://precision.stanford.edu/protocols/";
 $database_entry_protocol_link=$database_protocol_prefix . basename($_FILES["protocolFileToUpload"]["name"]);
 $protocol_visible_name=basename($_FILES["protocolFileToUpload"]["name"]);
 

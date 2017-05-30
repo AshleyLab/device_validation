@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<title>Suggest a Device For Validation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<body>
+<form class="w3-container" action="send_suggestions.php" method="POST" enctype="multipart/form-data">
+  <div class="w3-group">
+    <input name="Name" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Your Name</label>
+  </div>
+  <div class="w3-group">
+    <input name="Email" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Your Email Address</label>
+  </div>
+  <div class="w3-group">
+    <input name="DeviceName" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Device Name</label>
+  </div>
+  <div class="w3-group">
+    <input name="DeviceDescription" class="w3-input" type="text" maxlength="1000" required>
+    <label class="w3-label w3-validate">Device Description (1000 chrs.)</label>
+  </div>
+  <div class="w3-group">
+    <input name="DeviceSite" class="w3-input" type="text" maxlength="1000">
+    <label class="w3-label w3-validate">Device Website (optional) </label>
+  </div>
+  <div class="w3-group">
+    <label class="w3-label">Please verify that all study inclusion criteria are met by your device by checking the boxes below:</label>
+    <br>
+    <input id="Criteria_wrist_worn" class="w3-check" type="checkbox" name="wrist_worn" >
+    <label class="w3-validate">Wrist-worn watch or band</label>
+    <br>
+    <input id="Criteria_continuous_hr" class="w3-check" type="checkbox" name="continuous_hr">
+    <label class="w3-validate">Continuous measurement of heart rate</label>
+    <br>
+    <input id="Criteria_battery_life" class="w3-check" type="checkbox" name="battery_life">
+    <label class="w3-validate">Battery life greater than 24 hours</label>
+    <br>
+    <input id="Criteria_availability" class="w3-check" type="checkbox" name="availability">
+    <label class="w3-validate">Commercially available direct to consumer</label>
+  </div>
+  <div class="w3-group">
+    <input name="AdditionalNotes" class="w3-input" type="text" maxlength="1000">
+    <label class="w3-label w3-validate">Please provide any additional notes/comments here.</label>
+  </div>
+  <div class="w3-group">
+    <input type="submit" value="Send suggestion" name="submit">
+  </div>
+</form>
+</body>
+</html>
